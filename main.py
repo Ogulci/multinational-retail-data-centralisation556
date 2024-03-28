@@ -13,4 +13,4 @@ source_data = extractor.read_rds_table(connector, table_name)
 
 cleaned_data = cleaner.clean_user_data(source_data)
 
-cleaned_data.to_csv("legacy_users.csv", index= False)
+connector.upload_to_db(cleaned_data,"dim_users")

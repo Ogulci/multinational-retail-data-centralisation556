@@ -1,0 +1,8 @@
+previewLimit: 50
+RDS_HOST: localhost
+RDS_PORT: 5432
+driver: PostgreSQL
+name: sales_data
+RDS_DATABASE: sales_data
+RDS_USER: postgres
+RDS_PASSWORD: ogulci1905
