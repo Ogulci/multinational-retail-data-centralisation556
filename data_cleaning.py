@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import numpy as np
+from dateutil import parser
 class DataCleaning:
         
    def clean_user_data(self,user_data): 
@@ -60,7 +61,7 @@ class DataCleaning:
           store_data['opening_date']=store_data['opening_date'].str.replace('/','-')
           store_data['staff_numbers'] = store_data['staff_numbers'].str.replace(r'\D','',regex=True)
 
-          store_data['opening_date'] = pd.to_datetime(store_data['opening_date'], errors='coerce')
+          store_data['opening_date'] = store_data['opening_date'].apply(lambda date: parser.parse(date).strftime('%Y-%m-%d'))
 
           store_data.replace('N/A', np.nan, inplace=True)
           
